@@ -96,6 +96,8 @@ ALLOWED_ORIGINS=[https://vacant-house-ai.vercel.app](https://vacant-house-ai.ver
 const API_BASE_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:8000' 
     : '[https://vacant-house-api.onrender.com](https://vacant-house-api.onrender.com)';
+
+---
     
 ## 💻 6. 로컬 개발 환경 실행 방법1) 사전 준비Python 3.10 이상 설치Firebase Console에서 Firestore Database 생성 및 서비스 계정 키(JSON) 발급OpenAI API Key 발급2) 백엔드 실행Bash# 1. 백엔드 디렉터리 이동 및 가상환경 생성
 cd backend
@@ -122,6 +124,8 @@ uvicorn app.main:app --reload --port 8000
 python -m http.server 3000
 브라우저에서 http://localhost:3000 접속
 
+---
+
 ## 📡 7. API 엔드포인트 명세1) 데이터 관리 API (/api/data)MethodEndpoint설명POST/api/data새 빈집 관측 데이터 추가 (date, value, memo)GET/api/data전체 데이터 목록 조회 (정렬 및 필터 지원)PUT/api/data/{id}특정 ID의 데이터 수정DELETE/api/data/{id}특정 ID의 데이터 삭제GET/api/data/summary[핵심] LLM 프롬프트 주입용 시계열 통계 요약 반환/api/data/summary 응답 예시:JSON{
   "total_count": 170,
   "period": "2015 ~ 2024",
@@ -133,6 +137,8 @@ python -m http.server 3000
   "trend_status": "지속적 가속 증가세 (3개년 이동평균 우상향)"
 }
 2) 대화 기록 API (/api/conversations)MethodEndpoint설명POST/api/conversations새 대화 세션 생성 및 저장GET/api/conversations전체 대화 목록 조회 (세션 ID, 제목, 일시)GET/api/conversations/{id}특정 대화 세션의 전체 메시지(messages) 불러오기DELETE/api/conversations/{id}특정 대화 세션 삭제3) AI 챗봇 API (/api/chat)MethodEndpoint설명POST/api/chat자연어 질의 전송 ➡️ 요약 컨텍스트 주입 ➡️ GPT 응답 생성 ➡️ DB 자동 저장
+
+---
 
 ## 🧠 8. 핵심 아키텍처: 컨텍스트 주입(Context Injection) 원리Plaintext[사용자 질문] "현재 지방 빈집 비중이 얼마나 되고 왜 계속 늘어나?"
       │
@@ -157,6 +163,10 @@ python -m http.server 3000
       ▼
 [결과 반환 및 Firestore conversations 컬렉션에 자동 저장]
 
+---
+
 ## 📸 9. 서비스 화면 및 제출 증빙 스크린샷1. 데이터 요약 & AI 질의응답 화면2. 데이터 관리 (CRUD) 동작 화면3. 대화 기록 저장 및 불러오기 화면상단 요약 카드와 프롬프트 주입 기반 AI 답변신규 데이터 등록 및 삭제 후 목록 즉시 갱신사이드바의 이전 대화 클릭 시 본문 메시지 복원
+
+---
 
 ## 🌟 10. 보너스 과제 구현 사항시각화 대시보드 연동: 바닐라 프론트엔드 내 Chart.js를 연동하여 연도별 전국 빈집 추세선(MA-3 포함)을 상단 위젯으로 렌더링.데이터 내보내기 (Export): 등록된 시계열 데이터셋 전체를 브라우저에서 .csv 파일로 즉시 다운로드하는 기능 탑재.다크 모드(Dark Mode) 지원: localStorage에 사용자 테마 상태를 보존하는 원클릭 다크/라이트 모드 토글 구현.AI 도구 호출 (Function Calling): 사용자가 특정 시도(예: "전남 통계만 따로 보여줘")를 물어볼 경우, GPT가 get_regional_stats(region="전남") 도구를 스스로 호출하도록 백엔드 함수 스키마 정의 및 연동.
