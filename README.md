@@ -111,7 +111,11 @@ const API_BASE_URL = window.location.hostname === 'localhost'
     
 ## 💻 6. 로컬 개발 환경 실행 방법
 
-1) 사전 준비Python 3.10 이상 설치Firebase Console에서 Firestore Database 생성 및 서비스 계정 키(JSON) 발급OpenAI API Key 발급
+1) 사전 준비
+   * ** Python 3.10 이상 설치
+   * ** Firebase Console에서 Firestore Database 생성 및 서비스 계정 키(JSON) 발급
+   * ** OpenAI API Key 발급
+
 2) 백엔드 실행
 ```
 * 1. 백엔드 디렉터리 이동 및 가상환경 생성
