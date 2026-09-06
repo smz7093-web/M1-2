@@ -173,8 +173,19 @@ JSON{
   "trend_status": "지속적 가속 증가세 (3개년 이동평균 우상향)"
 }
 ```
-2) 대화 기록 API (/api/conversations)MethodEndpoint설명POST/api/conversations새 대화 세션 생성 및 저장GET/api/conversations전체 대화 목록 조회 (세션 ID, 제목, 일시)GET/api/conversations/{id}특정 대화 세션의 전체 메시지(messages) 불러오기DELETE/api/conversations/{id}특정 대화 세션 삭제3) AI 챗봇 API (/api/chat)MethodEndpoint설명POST/api/chat자연어 질의 전송 ➡️ 요약 컨텍스트 주입 ➡️ GPT 응답 생성 ➡️ DB 자동 저장
-
+2) 대화 기록 API (/api/conversations)
+```
+Method        Endpoint                설명
+POST       /api/conversations         새 대화 세션 생성 및 저장
+GET        /api/conversations         전체 대화 목록 조회 (세션 ID, 제목, 일시)
+GET        /api/conversations/{id}    특정 대화 세션의 전체 메시지(messages) 불러오기
+DELETE     /api/conversations/{id}    특정 대화 세션 삭제
+```
+3) AI 챗봇 API (/api/chat)
+```
+Method        Endpoint        설명
+POST          /api/chat       자연어 질의 전송 ➡️ 요약 컨텍스트 주입 ➡️ GPT 응답 생성 ➡️ DB 자동 저장
+```
 ---
 
 ## 🧠 8. 핵심 아키텍처: 컨텍스트 주입(Context Injection) 
