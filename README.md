@@ -78,9 +78,10 @@
 
 ```
 
-## ⚙️ 5. 환경 변수 설정 
-** (.env)서비스 구동을 위해 필요한 환경 변수 목록입니다. 
-** 보안을 위해 API 키와 서비스 계정 정보는 절대 Git 저장소에 커밋하지 않습니다. 백엔드 (backend/.env 및 Render 환경 변수)Ini, TOML
+## ⚙️ 5. 환경 변수 설정(.env)
+
+* 서비스 구동을 위해 필요한 환경 변수 목록입니다. 
+* 보안을 위해 API 키와 서비스 계정 정보는 절대 Git 저장소에 커밋하지 않습니다. 백엔드 (backend/.env 및 Render 환경 변수)Ini, TOML
 
 ### OpenAI API
 OPENAI_API_KEY=sk-proj-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
