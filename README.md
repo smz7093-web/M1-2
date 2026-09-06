@@ -109,12 +109,11 @@ const API_BASE_URL = window.location.hostname === 'localhost'
 ```
 ---
     
-## 💻 6. 로컬 개발 환경 
+## 💻 6. 로컬 개발 환경 실행 방법
 
-* 실행 방법
-* 1) 사전 준비Python 3.10 이상 설치Firebase Console에서 Firestore Database 생성 및 서비스 계정 키(JSON) 발급OpenAI API Key 발급
-  2) 백엔드 실행Bash
-
+1) 사전 준비Python 3.10 이상 설치Firebase Console에서 Firestore Database 생성 및 서비스 계정 키(JSON) 발급OpenAI API Key 발급
+2) 백엔드 실행
+```
 * 1. 백엔드 디렉터리 이동 및 가상환경 생성
 cd backend
 python -m venv venv
@@ -134,10 +133,18 @@ python seed_data.py
 
 * 5. FastAPI 서버 구동
 uvicorn app.main:app --reload --port 8000
-로컬 Swagger UI 접속: http://localhost:8000/docs3) 프론트엔드 실행프레임워크 빌드가 필요 없는 순수 HTML/CSS/JS이므로 브라우저에서 바로 열거나 간이 웹서버를 이용합니다.Bashcd ../frontend
+```
+로컬 Swagger UI 접속: http://localhost:8000/docs
+
+3) 프론트엔드 실행
+
+프레임워크 빌드가 필요 없는 순수 HTML/CSS/JS이므로 브라우저에서 바로 열거나 간이 웹서버를 이용합니다.
+```
+cd ../frontend
 
 VS Code의 'Live Server' 확장 사용 또는 Python 내장 웹서버 실행
 python -m http.server 3000
+```
 브라우저에서 http://localhost:3000 접속
 
 ---
