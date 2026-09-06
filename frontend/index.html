@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>빈집 인사이트 AI 비서</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- 왼쪽 사이드바: 대화 목록 & 데이터 관리 -->
+    <aside class="sidebar">
+      <h2>대화 목록</h2>
+      <button id="btn-new-chat" class="btn-primary">+ 새 대화 시작</button>
+      <ul id="conversation-list"></ul>
+
+      <hr style="margin: 20px 0; border: 0.5px solid #e2e8f0;">
+
+      <h3>데이터 직접 추가 (CRUD)</h3>
+      <form id="data-form">
+        <input type="text" id="input-date" placeholder="연도/날짜 (예: 2025-12-31)" required>
+        <input type="number" id="input-value" placeholder="빈집 수 (예: 21000)" required>
+        <input type="text" id="input-memo" placeholder="지역 메모 (예: 전남 빈집 수)" required>
+        <button type="submit" class="btn-secondary">데이터 저장</button>
+      </form>
+      <div id="data-status" class="status-msg"></div>
+    </aside>
+
+    <!-- 메인 영역: 데이터 요약 카드 + 채팅창 -->
+    <main class="main-content">
+      <header class="summary-header">
+        <h1>🏚️ 전국 빈집 시계열 AI 비서</h1>
+        <div class="summary-card" id="summary-card">
+          <p>데이터 요약 로딩 중...</p>
+        </div>
+      </header>
+
+      <section class="chat-section">
+        <div class="messages" id="messages-container">
+          <div class="msg assistant">안녕하세요! 전국 빈집 13만 4천 호 시계열 데이터를 분석하는 AI 비서입니다. 궁금한 점을 질문해 주세요.</div>
+        </div>
+        <div id="loading-spinner" class="loading hidden">AI가 데이터를 분석하여 답변을 생성 중입니다...</div>
+        <form class="input-form" id="chat-form">
+          <input type="text" id="chat-input" placeholder="질문을 입력하세요 (예: 최근 10년간 비수도권 빈집 추세가 어때?)" required>
+          <button type="submit">전송</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js?v=2"></script>
+</body>
+</html>
