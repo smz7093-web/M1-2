@@ -1,25 +1,43 @@
 from app.core.firebase import get_db
 import pandas as pd
 
-def calculate_summary() -> dict:
+
+def load_data_frame() -> pd.DataFrame:
     db = get_db()
-    docs = db.collection('data').stream()
-    records = []
-    for d in docs:
-        item = d.to_dict()
-        records.append(item)
-    
+    records = [d.to_dict() for d in db.collection('data').stream()]
     if not records:
+        return pd.DataFrame(columns=['date', 'value', 'memo', 'Year', 'Region'])
+
+    df = pd.DataFrame(records)
+    df['Year'] = df['date'].apply(lambda x: str(x)[:4])
+    df['Region'] = df['memo'].apply(lambda x: x.split()[0] if ' ' in x else x[:2])
+    return df
+
+
+def calculate_regional_context() -> str:
+    df = load_data_frame()
+    if df.empty:
+        return "지역별 데이터 없음"
+
+    rows = []
+    for region, region_df in df.sort_values(['Region', 'Year']).groupby('Region'):
+        yearly_values = ', '.join(
+            f"{row.Year}: {int(row.value):,}호"
+            for row in region_df.itertuples()
+        )
+        rows.append(f"- {region}: {yearly_values}")
+    return '\n'.join(rows)
+
+def calculate_summary() -> dict:
+    df = load_data_frame()
+
+    if df.empty:
         return {
             "total_count": 0, "period": "N/A", "latest_total_value": 0,
             "growth_10yr_pct": 0.0, "top_regions": [], "capital_share_pct": 0.0,
             "non_capital_share_pct": 0.0, "trend_status": "데이터 없음"
         }
     
-    df = pd.DataFrame(records)
-    df['Year'] = df['date'].apply(lambda x: str(x)[:4])
-    df['Region'] = df['memo'].apply(lambda x: x.split()[0] if ' ' in x else x[:2])
-
     latest_year = df['Year'].max()
     earliest_year = df['Year'].min()
     

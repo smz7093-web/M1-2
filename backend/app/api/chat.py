@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException
 from openai import OpenAI
 from app.core.firebase import get_db
 from app.schemas.chat import ChatRequest, ChatResponse
-from app.services.data_service import calculate_summary
+from app.services.data_service import calculate_regional_context, calculate_summary
 
 router = APIRouter(prefix="/api/chat", tags=["Chat"])
 openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -13,6 +13,7 @@ openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 def chat_with_data(req: ChatRequest):
     db = get_db()
     summary = calculate_summary()
+    regional_context = calculate_regional_context()
     
     system_prompt = f"""
 너는 대한민국 전국 빈집 현황 및 시계열 분석 전문가 AI 비서야.
@@ -22,6 +23,9 @@ def chat_with_data(req: ChatRequest):
 - 상위 누적 지역: {', '.join(summary['top_regions'])}
 - 수도권 vs 비수도권 비중: 비수도권 {summary['non_capital_share_pct']}%, 수도권 {summary['capital_share_pct']}%
 - 트렌드: {summary['trend_status']}
+
+아래는 Firestore에 저장된 지역별 연도별 원자료다. 지역 질문에는 반드시 이 자료에서 해당 지역을 찾아 구체적인 연도와 호수를 답변해. 자료에 없는 값은 추측하지 마.
+{regional_context}
 """
     conversation_id = req.conversation_id
     messages_history = []
