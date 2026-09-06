@@ -81,23 +81,26 @@
 ## ⚙️ 5. 환경 변수 설정(.env)
 
 * 서비스 구동을 위해 필요한 환경 변수 목록입니다. 
-* 보안을 위해 API 키와 서비스 계정 정보는 절대 Git 저장소에 커밋하지 않습니다. 백엔드 (backend/.env 및 Render 환경 변수)Ini, TOML
+* 보안을 위해 API 키와 서비스 계정 정보는 절대 Git 저장소에 커밋하지 않습니다.
 
-### OpenAI API
+* 백엔드 (backend/.env 및 Render 환경 변수)
+  
+# OpenAI API
 OPENAI_API_KEY=sk-proj-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-### Firebase / Firestore 설정
+# Firebase / Firestore 설정
 FIREBASE_PROJECT_ID=vacant-house-ai-prod
 FIREBASE_PRIVATE_KEY_ID=xxxxxxxxxxxx
 FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@vacant-house-ai-prod.iam.gserviceaccount.com
-### ※ Render 등 배포 환경에서는 줄바꿈(\n)을 포함한 비공개 키 문자열을 환경 변수에 직접 등록
+# ※ Render 등 배포 환경에서는 줄바꿈(\n)을 포함한 비공개 키 문자열을 환경 변수에 직접 등록
 FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC..."
 
-###  서버 환경 및 CORS
+# 서버 환경 및 CORS
 PORT=8000
 ENVIRONMENT=production
 ALLOWED_ORIGINS=[https://vacant-house-ai.vercel.app](https://vacant-house-ai.vercel.app),http://localhost:3000,[http://127.0.0.1:5500](http://127.0.0.1:5500)
-프론트엔드 (frontend/vercel.json 또는 app.js 상수)JavaScript// app.js 상단 또는 빌드 시 주입
+
+* 프론트엔드 (frontend/vercel.json 또는 app.js 상수)JavaScript// app.js 상단 또는 빌드 시 주입
 const API_BASE_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:8000' 
     : '[https://vacant-house-api.onrender.com](https://vacant-house-api.onrender.com)';
