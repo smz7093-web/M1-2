@@ -84,7 +84,7 @@
 * 보안을 위해 API 키와 서비스 계정 정보는 절대 Git 저장소에 커밋하지 않습니다.
 
 * 백엔드 (backend/.env 및 Render 환경 변수)
-  
+```  
 # OpenAI API
 OPENAI_API_KEY=sk-proj-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
@@ -99,7 +99,7 @@ FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFA
 PORT=8000
 ENVIRONMENT=production
 ALLOWED_ORIGINS=[https://vacant-house-ai.vercel.app](https://vacant-house-ai.vercel.app),http://localhost:3000,[http://127.0.0.1:5500](http://127.0.0.1:5500)
-
+```
 * 프론트엔드 (frontend/vercel.json 또는 app.js 상수)JavaScript// app.js 상단 또는 빌드 시 주입
 const API_BASE_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:8000' 
