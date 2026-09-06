@@ -118,24 +118,24 @@ const API_BASE_URL = window.location.hostname === 'localhost'
 
 2) 백엔드 실행
 ```
-* 1. 백엔드 디렉터리 이동 및 가상환경 생성
+1. 백엔드 디렉터리 이동 및 가상환경 생성
 cd backend
 python -m venv venv
 
 가상환경 활성화 (Windows: venv\Scripts\activate / macOS, Linux: source venv/bin/activate)
 source venv/bin/activate
 
-* 2. 패키지 설치
+2. 패키지 설치
 pip install -r requirements.txt
 
-* 3. 환경 변수 설정
+3. 환경 변수 설정
 cp .env.example .env
 .env 파일 내 OPENAI_API_KEY 및 FIREBASE 관련 키 입력
 
-* 4. 초기 시계열 데이터(170건) DB 적재 (최초 1회 실행)
+4. 초기 시계열 데이터(170건) DB 적재 (최초 1회 실행)
 python seed_data.py
 
-* 5. FastAPI 서버 구동
+5. FastAPI 서버 구동
 uvicorn app.main:app --reload --port 8000
 ```
 로컬 Swagger UI 접속: http://localhost:8000/docs
