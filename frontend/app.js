@@ -1,6 +1,6 @@
 const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'http://localhost:8000'
-  : 'https://vacant-house-api.onrender.com'; // 배포 후 본인의 Render URL로 수정
+  : 'https://m1-2-tyhj.onrender.com'; // 배포 후 본인의 Render URL로 수정
 
 let currentConversationId = null;
 
