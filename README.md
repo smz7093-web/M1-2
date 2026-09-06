@@ -152,14 +152,14 @@ python -m http.server 3000
 ## 📡 7. API 엔드포인트 명세
 
 1) 데이터 관리 API (/api/data)
-
+```
 Method      Endpoint              설명
 POST        /api/data             새 빈집 관측 데이터 추가 (date, value, memo)
 GET         /api/data             전체 데이터 목록 조회 (정렬 및 필터 지원)
 PUT         /api/data/{id}        특정 ID의 데이터 수정
 DELETE      /api/data/{id}        특정 ID의 데이터 삭제
 GET         /api/data/summary     [핵심] LLM 프롬프트 주입용 시계열 통계 요약 반환
-
+```
 /api/data/summary 응답 예시:
 ```
 JSON{
