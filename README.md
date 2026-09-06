@@ -151,7 +151,18 @@ python -m http.server 3000
 
 ## 📡 7. API 엔드포인트 명세
 
-* 1) 데이터 관리 API (/api/data)MethodEndpoint설명POST/api/data새 빈집 관측 데이터 추가 (date, value, memo)GET/api/data전체 데이터 목록 조회 (정렬 및 필터 지원)PUT/api/data/{id}특정 ID의 데이터 수정DELETE/api/data/{id}특정 ID의 데이터 삭제GET/api/data/summary[핵심] LLM 프롬프트 주입용 시계열 통계 요약 반환/api/data/summary 응답 예시:JSON{
+1) 데이터 관리 API (/api/data)
+
+Method      Endpoint              설명
+POST        /api/data             새 빈집 관측 데이터 추가 (date, value, memo)
+GET         /api/data             전체 데이터 목록 조회 (정렬 및 필터 지원)
+PUT         /api/data/{id}        특정 ID의 데이터 수정
+DELETE      /api/data/{id}        특정 ID의 데이터 삭제
+GET         /api/data/summary     [핵심] LLM 프롬프트 주입용 시계열 통계 요약 반환
+
+/api/data/summary 응답 예시:
+```
+JSON{
   "total_count": 170,
   "period": "2015 ~ 2024",
   "latest_total_value": 134009,
@@ -161,7 +172,8 @@ python -m http.server 3000
   "non_capital_share_pct": 89.7,
   "trend_status": "지속적 가속 증가세 (3개년 이동평균 우상향)"
 }
-* 2) 대화 기록 API (/api/conversations)MethodEndpoint설명POST/api/conversations새 대화 세션 생성 및 저장GET/api/conversations전체 대화 목록 조회 (세션 ID, 제목, 일시)GET/api/conversations/{id}특정 대화 세션의 전체 메시지(messages) 불러오기DELETE/api/conversations/{id}특정 대화 세션 삭제3) AI 챗봇 API (/api/chat)MethodEndpoint설명POST/api/chat자연어 질의 전송 ➡️ 요약 컨텍스트 주입 ➡️ GPT 응답 생성 ➡️ DB 자동 저장
+```
+2) 대화 기록 API (/api/conversations)MethodEndpoint설명POST/api/conversations새 대화 세션 생성 및 저장GET/api/conversations전체 대화 목록 조회 (세션 ID, 제목, 일시)GET/api/conversations/{id}특정 대화 세션의 전체 메시지(messages) 불러오기DELETE/api/conversations/{id}특정 대화 세션 삭제3) AI 챗봇 API (/api/chat)MethodEndpoint설명POST/api/chat자연어 질의 전송 ➡️ 요약 컨텍스트 주입 ➡️ GPT 응답 생성 ➡️ DB 자동 저장
 
 ---
 
