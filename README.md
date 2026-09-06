@@ -100,11 +100,13 @@ PORT=8000
 ENVIRONMENT=production
 ALLOWED_ORIGINS=[https://vacant-house-ai.vercel.app](https://vacant-house-ai.vercel.app),http://localhost:3000,[http://127.0.0.1:5500](http://127.0.0.1:5500)
 ```
-* 프론트엔드 (frontend/vercel.json 또는 app.js 상수)JavaScript// app.js 상단 또는 빌드 시 주입
+* 프론트엔드 (frontend/vercel.json 또는 app.js 상수)
+```
+JavaScript// app.js 상단 또는 빌드 시 주입
 const API_BASE_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:8000' 
     : '[https://vacant-house-api.onrender.com](https://vacant-house-api.onrender.com)';
-
+```
 ---
     
 ## 💻 6. 로컬 개발 환경 
