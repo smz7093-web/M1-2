@@ -96,14 +96,14 @@ FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFA
 # 서버 환경 및 CORS
 PORT=8000
 ENVIRONMENT=production
-ALLOWED_ORIGINS=[https://vacant-house-ai.vercel.app](https://vacant-house-ai.vercel.app),http://localhost:3000,[http://127.0.0.1:5500](http://127.0.0.1:5500)
+ALLOWED_ORIGINS=[https://m1-2-alpha.vercel.app](https://m1-2-alpha.vercel.app),http://localhost:3000,[http://127.0.0.1:5500](http://127.0.0.1:5500)
 ```
 * 프론트엔드 (frontend/vercel.json 또는 app.js 상수)
 ```
 JavaScript// app.js 상단 또는 빌드 시 주입
 const API_BASE_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:8000' 
-    : '[https://vacant-house-api.onrender.com](https://vacant-house-api.onrender.com)';
+    : '[https://m1-2-tyhj.onrender.com](https://m1-2-tyhj.onrender.com)';
 ```
 ---
     
