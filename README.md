@@ -8,8 +8,6 @@
 
 ## 📖 1. 서비스 소개
 
-일반적인 ChatGPT는 사용자의 특정 내부 데이터나 최신 로컬 현황을 알지 못합니다. "현재 빈집 문제가 어느 정도로 심각해?"라고 물으면 교과서적인 원론적 답변만 내놓습니다.
-
 **빈집 인사이트 AI 비서**는 2015년부터 2024년까지의 **전국 17개 시도별 방치 빈집 시계열 데이터(총 170개 포인트, 2024년 13만 4,009호 확정치)**를 Firestore에 저장하고, 실시간으로 데이터 요약 통계(최근 추세, 수도권 vs 비수도권 누적 비중, 이상치 지역 등)를 산출하여 **AI 시스템 프롬프트에 컨텍스트로 자동 주입(Context Injection)**합니다. 
 
 사용자는 자연어 대화만으로 내 데이터 기반의 정밀한 정책 제언 및 시계열 트렌드 답변을 즉시 얻을 수 있으며, 웹 인터페이스를 통해 데이터를 직접 CRUD 관리하고 과거 대화 이력을 언제든 불러올 수 있습니다.
@@ -35,9 +33,9 @@
 
 ## 🌐 3. 배포 URL 및 API 문서
 
-* **웹 프론트엔드 (Vercel)**: `https://vacant-house-ai.vercel.app`
-* **백엔드 API 서버 (Render)**: `https://vacant-house-api.onrender.com`
-* **인터랙티브 API 문서 (Swagger UI)**: `https://vacant-house-api.onrender.com/docs`
+* **웹 프론트엔드 (Vercel)**: `https://m1-2-alpha.vercel.app/index.html`
+* **백엔드 API 서버 (Render)**: `https://m1-2-tyhj.onrender.com`
+* **인터랙티브 API 문서 (Swagger UI)**: `https://m1-2-tyhj.onrender.com/docs`
 
 > 💡 **콜드 스타트(Cold Start) 안내**:
 > Render 무료 티어 정책상 약 15분 이상 요청이 없을 경우 서버가 슬립 모드로 전환됩니다. 첫 접속 시 최초 응답까지 약 30~50초의 지연이 발생할 수 있습니다. 프론트엔드 UI에 로딩 스피너 및 슬립 해제 대기 안내 문구가 표시됩니다.
