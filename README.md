@@ -33,9 +33,9 @@
 
 ## 🌐 3. 배포 URL 및 API 문서
 
-* **웹 프론트엔드 (Vercel)**: `https://m1-2-alpha.vercel.app/index.html`
-* **백엔드 API 서버 (Render)**: `https://m1-2-tyhj.onrender.com`
-* **인터랙티브 API 문서 (Swagger UI)**: `https://m1-2-tyhj.onrender.com/docs`
+* **웹 프론트엔드 (Vercel)**: https://m1-2-alpha.vercel.app/index.html
+* **백엔드 API 서버 (Render)**: https://m1-2-tyhj.onrender.com
+* **인터랙티브 API 문서 (Swagger UI)**: https://m1-2-tyhj.onrender.com/docs
 
 > 💡 **콜드 스타트(Cold Start) 안내**:
 > Render 무료 티어 정책상 약 15분 이상 요청이 없을 경우 서버가 슬립 모드로 전환됩니다. 첫 접속 시 최초 응답까지 약 30~50초의 지연이 발생할 수 있습니다. 프론트엔드 UI에 로딩 스피너 및 슬립 해제 대기 안내 문구가 표시됩니다.
